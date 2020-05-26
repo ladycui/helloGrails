@@ -1,6 +1,52 @@
 server:
     port: 8081
 
+redis:
+    host: 127.0.0.1
+    password:
+    port: 6379
+    poolConfig:
+        maxIdle: 10
+kafkaServer:
+    bootstrap:
+        servers: localhost:9092
+
+kafka:
+    youzan_channel:
+        topic: test_kafka_topic
+        group_id: test_kafka_groupid
+        numConsumers: 10
+
+dataSource:
+    driverClassName: com.mysql.jdbc.Driver
+    pooled: true
+    jmxExport: true
+    username: root
+    password: root
+    dbCreate: none
+    url: jdbc:mysql://localhost:3306/cyn?useUnicode=yes&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+    logSql: false
+    formatSql: false
+    properties:
+        jmxEnabled: true
+        initialSize: 5
+        maxActive: 25
+        minIdle: 5
+        maxIdle: 25
+        maxWait: 10000
+        maxAge: 600000
+        timeBetweenEvictionRunsMillis: 5000
+        minEvictableIdleTimeMillis: 60000
+        validationQuery: SELECT 1
+        validationQueryTimeout: 3
+        validationInterval: 15000
+        testOnBorrow: true
+        testWhileIdle: true
+        testOnReturn: false
+        jdbcInterceptors: ConnectionState
+        defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+        initSQL: "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
 ---
 grails:
     profile: web
