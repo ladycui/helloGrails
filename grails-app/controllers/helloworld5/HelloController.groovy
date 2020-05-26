@@ -2,6 +2,7 @@ package helloworld5
 
 import grails.converters.JSON
 import groovy.json.JsonSlurper
+import org.springframework.beans.factory.annotation.Value
 
 class HelloController {
     def index() {
@@ -34,6 +35,8 @@ class HelloController {
     }
 
     def kafkaProducerService
+    @Value('${kafka.youzan_channel.topic:test_topic}')
+    String topic
 
     def kafkaTest() {
         def data = request.JSON
@@ -46,15 +49,13 @@ class HelloController {
             log.info("---service is null")
             render "service null"
         }
-        kafkaProducerService.send("kafka_test_topic", data.key, map)
+        kafkaProducerService.send(topic, data.key, map)
         log.info("----kafka send end")
 
         render "kafka: $data"
     }
 
-//    def postTest(){
-////        def id = params.id
-//        def data = request.JSON
-//        log.info("---post param: ")
-//    }
+    def mysqlTest() {
+
+    }
 }

@@ -6,9 +6,9 @@ class ScheduleTestServiceJob {
         simple name:"ScheduleTestService", startDelay: 0 , repeatInterval: 10000 //refresh every 10s
     }
 
-    def execute(){
-//    	dmhubTokenService.refreshAll()
-        log.info("==== Starting Job ====")
-//        println("----job-----")
-    }
+//    def execute(){
+////    	dmhubTokenService.refreshAll()
+////        log.info("==== Starting Job ====")
+////        println("----job-----")
+//    }
 }
