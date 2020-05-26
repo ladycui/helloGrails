@@ -20,7 +20,7 @@ class UrlMappings {
         // /post?id=1
         "/post/$id"(controller:"hello", action: "postTest2", method: "POST")
 
-
+        "/kafka"(controller: "hello", action: "kafkaTest", method:"POST")
 
 
     }

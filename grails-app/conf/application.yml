@@ -1,6 +1,16 @@
 server:
     port: 8081
 
+redis:
+    host: 127.0.0.1
+    password:
+    port: 6379
+    poolConfig:
+        maxIdle: 10
+kafkaServer:
+    bootstrap:
+        servers: localhost:9092
+
 ---
 grails:
     profile: web

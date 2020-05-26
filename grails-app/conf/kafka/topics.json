@@ -1,0 +1,9 @@
+[
+  {
+    "name": "helloworld5_test_topic",
+    "consumerServices": [
+      "helloworld5"
+    ],
+    "partitions": 20
+  }
+]

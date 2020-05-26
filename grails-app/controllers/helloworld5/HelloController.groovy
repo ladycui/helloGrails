@@ -1,6 +1,7 @@
 package helloworld5
 
 import grails.converters.JSON
+import groovy.json.JsonSlurper
 
 class HelloController {
     def index() {
@@ -28,9 +29,28 @@ class HelloController {
         def id = params.id
         def data = request.JSON
         log.info("---post: id: $id, data: $data ---")
-        respond "post: $data"
+//        render "post: $data"
+        response << $data
     }
 
+    def kafkaProducerService
+
+    def kafkaTest() {
+        def data = request.JSON
+        log.info("---kafaka get json: $data")
+        log.info("---kafaka get json: ${data.key}")
+//        public void send(String topic, Object key, Map<String, Object> data) {
+        Map<String, Object> map = new HashMap<>()
+        map.put("data", data)
+        if(kafkaProducerService == null) {
+            log.info("---service is null")
+            render "service null"
+        }
+        kafkaProducerService.send("kafka_test_topic", data.key, map)
+        log.info("----kafka send end")
+
+        render "kafka: $data"
+    }
 
 //    def postTest(){
 ////        def id = params.id
