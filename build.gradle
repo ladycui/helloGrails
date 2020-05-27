@@ -78,6 +78,9 @@ dependencies {
     compile "com.convertlab:error-code:${branch}.+"
     compile "org.apache.kafka:kafka-clients:2.3.0"
     providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
+    runtime 'mysql:mysql-connector-java:5.1.29'
+//    compile 'org.grails.plugins:views-json:1.0.0' // or whatever is the latest version
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.4.0'
 
 }
 

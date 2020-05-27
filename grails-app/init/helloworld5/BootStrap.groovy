@@ -10,7 +10,7 @@ class BootStrap {
         databaseConsumerService.start()
     }
     def destroy = {
-        log.info("==> bootstrap end==")
         databaseConsumerService.shutdown()
+        log.info("==> bootstrap end==")
     }
 }
