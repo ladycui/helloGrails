@@ -22,6 +22,8 @@ class UrlMappings {
 
         "/kafka"(controller: "hello", action: "kafkaTest", method:"POST")
 
+        "/savePerson"(controller: "hello", action: "mysqlTest")
+
 
     }
 }

@@ -45,7 +45,7 @@ class HelloController {
 //        public void send(String topic, Object key, Map<String, Object> data) {
         Map<String, Object> map = new HashMap<>()
         map.put("data", data)
-        if(kafkaProducerService == null) {
+        if (kafkaProducerService == null) {
             log.info("---service is null")
             render "service null"
         }
@@ -55,7 +55,20 @@ class HelloController {
         render "kafka: $data"
     }
 
+    def personDataService
+
     def mysqlTest() {
+        def queryName = "iMperson"
+        def person = new Person(name: queryName, age: 10)
+        person.save(flush: true)
+        log.info("save person: $person")
+        def queryPerson = personDataService.findByName(queryName)
+        log.info("query person: $queryPerson")
+        response << $queryPerson
+    }
+
+
+    def httpTest() {
 
     }
 }
