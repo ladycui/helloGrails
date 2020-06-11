@@ -1,5 +1,6 @@
 package helloworld5
 
+import com.alibaba.fastjson.JSONObject
 import grails.converters.JSON
 import groovy.json.JsonSlurper
 import org.springframework.beans.factory.annotation.Value
@@ -71,4 +72,34 @@ class HelloController {
     def httpTest() {
 
     }
+
+    def addPerson() {
+        def json = request.JSON
+        log.info("---addPerson request: $json")
+        def person
+        try {
+            person = JSONObject.parseObject(json, Person.class)
+        } catch (Exception e) {
+//            e.printStackTrace()
+//            log.error("${e.message}")
+            log.info("--------")
+            person = new Person()
+            person.nameChinese = "中文名"
+            person.nameEnglish = "englishName"
+            person.ageSchool = 10
+            person.age = 18
+        }
+        person.save()
+    }
+
+    def queryPersonByEnglishName() {
+        def ame = params.name
+        def persons = personDataService.findAllByName(name)
+        for (def person in persons) {
+            log.info("---$person")
+        }
+
+    }
+
+
 }

@@ -48,6 +48,10 @@ endpoints:
 
 ---
 grails:
+    plugin:
+        databasemigration:
+            updateOnStart: true
+            updateOnStartFileName: changelog.groovy
     mime:
         disable:
             accept:
