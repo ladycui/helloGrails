@@ -34,4 +34,6 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
 }
 //root(ERROR, ['STDOUT'])
-logger("helloworld5", INFO, ['STDOUT'], false)
+logger("helloworld5", DEBUG, ['STDOUT'], false)
+logger("grails.gorm.services.*", DEBUG, ['STDOUT'], false)
+logger 'org.hibernate.SQL', DEBUG, ['STDOUT'], false

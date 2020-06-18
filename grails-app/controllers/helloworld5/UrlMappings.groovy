@@ -25,7 +25,11 @@ class UrlMappings {
         "/savePerson"(controller: "hello", action: "mysqlTest")
 
         "/addPerson"(controller: "hello", action: "addPerson", method: "POST")
-        "/queryPerson?$name"(controller: "hello", action: "queryPersonByEnglishName", method: "GET")
+        "/savePerson"(controller: "hello", action: "testSave", method: "POST")
+
+        "/queryPerson"(controller: "hello", action: "queryPersonByEnglishName", method: "GET")
+
+        "/testGet"(controller: "hello", action: "testGet", method: "GET")
 
 
     }

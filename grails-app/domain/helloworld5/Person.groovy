@@ -13,5 +13,5 @@ class Person {
     String nameEnglish
     Integer ageSchool
     Date createTime = new Date()
-    Integer age
+    Boolean isLeader = false
 }
